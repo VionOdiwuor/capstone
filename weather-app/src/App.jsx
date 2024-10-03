@@ -17,10 +17,11 @@ const [weather, setWeather]= useState(null)
 
 
   const getWeather = async ()=> {
-  await getFormattedWeatherData({q:'Nairobi'}).then (data => {
-    setWeather(data)
+  await getFormattedWeatherData({...query, units}).then (data => {
+    setWeather(data)   
+    
   });
-    console.log(data);
+ 
   };
   useEffect (() => {
     getWeather()
@@ -33,13 +34,12 @@ getWeather();
       <TopButtons />
       <SearchBar />
 
-      {
-       weather && (
+      {weather && (
         <>
     <TimeLocation weather ={weather}/>
     <TemperatureDetails weather ={weather} />
-    <HourlyForecast/>
-    <HourlyForecast/>
+    <HourlyForecast title="3 hour step forecast" data = {weather.hourly}/>
+    <HourlyForecast title="Daily forecast" data= {weather.daily} />
     </>
 
        )};

@@ -9,7 +9,7 @@ function TopButtons() {
     },
     {
       id: 2,
-      name: "Nairobi",
+      name: "Dodoma",
     },
     {
       id: 3,

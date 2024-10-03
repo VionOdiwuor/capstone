@@ -1,15 +1,19 @@
 import React from 'react'
 
-function TimeLocation() {
+const TimeLocation = ({
+  weather: {formattedLocalTime, name , country },
+}) => {
   return (
     <div>
       <div className='flex items-center justify-center my-6'>
 <p className='text-white text-xl font-extralight '>
-    Tuesday, 31 May 2024 | Local time: 12:25 PM </p>
+    
+    {formattedLocalTime}
+    </p>
+
       </div>
       <div className='flex items-center justify-center my-3'>
-        <p className='text-white text-3xl font-medium'>
-        Dodoma
+        <p className='text-white text-3xl font-medium'>{`${name},${country}`}
         </p>
          </div>
     
