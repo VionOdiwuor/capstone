@@ -1,7 +1,7 @@
 import React from "react";
 
 const HourlyForecast= ({title,data}) => {
-
+console.log ("data:", data)
   return (
     <div>
       <div className="flex items-center justify-start mt-6 text-white">

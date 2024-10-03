@@ -1,6 +1,6 @@
 import React from "react";
 //creates a reusable button for all cities
-function TopButtons() {
+const TopButtons=( setQuery)=> {
   //create an array for the cities
   const cities = [
     {
@@ -30,7 +30,12 @@ function TopButtons() {
         <button
           key={city.id}
           className="text-lg font-medium text-white hover:bg-gray-700/20 px-3 py-2 rounded-md transition ease-in"
+        onClick={() =>setQuery({q:city.name})
+
+
+        }
         >
+
           {city.name}
         </button>
       ))}
