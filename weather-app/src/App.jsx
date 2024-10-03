@@ -17,12 +17,14 @@ function App() {
 
 
   const getWeather = async ()=> {
-  await getFormattedWeatherData({...query, units}).then (data => {
-    setWeather(data)   
-    
-  });
+    try{
+      const data = await getFormattedWeatherData(query,units);
+      setWeather(data);
+      }catch(error){
+        console.log("Failed to fetch", error);
+    }
+};
  
-  };
   useEffect (() => {
     getWeather()
   },[query, units]
@@ -37,7 +39,7 @@ return 'from-yellow-600 to-orange-700'
 
 
   return (
-    <div className='mx-auto max-w-screen-lg mt-4 py-5 px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground} '>
+    <div className={'mx-auto max-w-screen-lg mt-4 py-5 px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground}'}>
       <TopButtons setQuery={setQuery}/>
       <SearchBar setQuery={setQuery} setUnits={setUnits}/>
 
@@ -49,10 +51,10 @@ return 'from-yellow-600 to-orange-700'
     <HourlyForecast title="Daily forecast" data= {weather.daily} />
     </>
 
-       )};
+       )}
    
     </div>
   )
-}
+};
 
 export default App

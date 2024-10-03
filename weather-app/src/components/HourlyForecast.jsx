@@ -1,7 +1,21 @@
 import React from "react";
 
 const HourlyForecast= ({title,data}) => {
-console.log ("data:", data)
+console.log ("data:", data);
+
+// Ensure data is an array and not undefined before using map
+if (!Array.isArray(data) || data.length === 0) {
+    return (
+        <div>
+          <div className="flex items-center justify-start mt-6 text-white">
+            <p className="font-medium uppercase">{title}</p>
+          </div>
+          <hr className="my-1" />
+          <p className="text-white">No hourly forecast data available</p>
+        </div>
+      );
+    }
+  
   return (
     <div>
       <div className="flex items-center justify-start mt-6 text-white">

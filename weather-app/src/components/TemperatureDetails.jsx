@@ -1,10 +1,17 @@
 import React from "react";
+import { DateTime } from "luxon";
 import { FaThermometerEmpty } from "react-icons/fa";
 import { BiSolidDropletHalf } from "react-icons/bi";
 import { FiWind } from "react-icons/fi";
 import { GiSunrise, GiSunset } from "react-icons/gi";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
+// Define the formattedTime function using Luxon
+const formattedTime = (secs, timezone) => {
+  // Ensure secs is a valid number before formatting
+  if (!secs || isNaN(secs)) return "Invalid time"; // Fallback value if secs is invalid
+  return DateTime.fromSeconds(secs).setZone(timezone).toFormat("hh:mm a");
+};
 const TemperatureDetails = ({weather:{
   details,
   icon,
@@ -15,7 +22,8 @@ const TemperatureDetails = ({weather:{
   sunset,
   speed,
   humidity,
-  feels_like
+  feels_like,
+  timezone
 },
 }) => {
   const verticalDetails = [
@@ -43,13 +51,13 @@ const TemperatureDetails = ({weather:{
       id: 1,
       Icon: GiSunrise,
       title: "Sunrise",
-      value:formattedTime(sunrise), // Convert Unix time to readable format
+      value:formattedTime(sunrise,timezone), // Convert Unix time to readable format
     },
     {
       id: 2,
       Icon: GiSunset,
       title: "Sunset",
-      value:formattedTime(sunset), // Convert Unix time to readable format
+      value:formattedTime(sunset,timezone), // Convert Unix time to readable format
     },
     {
       id: 3,
@@ -73,7 +81,7 @@ const TemperatureDetails = ({weather:{
       </div>
       <div className="flex flex-row items-center justify-between text-white py-3">
         <img
-          src={iconUrl}
+          src={icon}
           alt="weather icon"
           className="w-20"
         />
