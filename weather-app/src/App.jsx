@@ -18,7 +18,7 @@ function App() {
 
   const getWeather = async ()=> {
     try{
-      const data = await getFormattedWeatherData(query,units);
+      const data = await getFormattedWeatherData({...query, units});
       setWeather(data);
       }catch(error){
         console.log("Failed to fetch", error);
@@ -29,17 +29,17 @@ function App() {
     getWeather()
   },[query, units]
 );
-const formatBackground =()=>{
+// Function to set background based on temperature
+const formatBackground = () => {
   if(!weather) return ' from-cyan-600 to-blue-700 '
 const threshold = units==='metric'? 20:60
-if (weather.temp<= threshold) return ' from-cyan-600 to-blue-700 '
-return 'from-yellow-600 to-orange-700'
+return weather.temp <= threshold ? 'from-cyan-600 to-blue-700' : 'from-yellow-600 to-orange-700';
 
-}
+};
 
 
   return (
-    <div className={'mx-auto max-w-screen-lg mt-4 py-5 px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground}'}>
+    <div className={`mx-auto max-w-screen-lg mt-4 py-5 px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground}`}>
       <TopButtons setQuery={setQuery}/>
       <SearchBar setQuery={setQuery} setUnits={setUnits}/>
 
