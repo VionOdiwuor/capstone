@@ -26,11 +26,14 @@ const handleLocationClick=()=>{
           placeholder="Search for city...."
           className="text-xl font-light p-2 w-full shadow-xl focus:outline-none capitalize placeholder:lowercase"
         />
+        {error && <p className="text-red-500 mt-2">{error}</p>}
         <BiSearch
           size={30}
           className=" cursor-pointer  text-white transition ease-out hover:scale-125 "
         onClick={handleSearchClick}
+      
         />
+          
         <MdLocationOn
           size={30}
           className=" cursor-pointer text-white transition ease-out hover:scale-125 "
@@ -46,7 +49,7 @@ const handleLocationClick=()=>{
         ℉
         </button>
       </div>
-      {error && <p className="text-red-500 mt-2">{error}</p>}
+      
     </div>
   );
 };
