@@ -1,5 +1,4 @@
 import React from "react";
-import { DateTime } from "luxon";
 import { FaThermometerEmpty } from "react-icons/fa";
 import { BiSolidDropletHalf } from "react-icons/bi";
 import { FiWind } from "react-icons/fi";
@@ -7,11 +6,9 @@ import { GiSunrise, GiSunset } from "react-icons/gi";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 // Define the formattedTime function using Luxon
-const formattedTime = (secs, timezone) => {
-  // Ensure secs is a valid number before formatting
-  if (!secs || isNaN(secs)) return "Invalid time"; // Fallback value if secs is invalid
-  return DateTime.fromSeconds(secs).setZone(timezone).toFormat("hh:mm a");
-};
+
+
+
 const TemperatureDetails = ({weather:{
   details,
   icon,
@@ -26,6 +23,11 @@ const TemperatureDetails = ({weather:{
   timezone
 },
 }) => {
+// Debugging: Log the values to verify correctness
+ console.log("Sunrise:", sunrise); // Unix timestamp in seconds
+ console.log("Sunset:", sunset); // Unix timestamp in seconds
+
+
   const verticalDetails = [
     {
       id: 1,
@@ -37,13 +39,13 @@ const TemperatureDetails = ({weather:{
       id: 2,
       Icon: BiSolidDropletHalf,
       title: "Humidity",
-      value:  `${humidity}`,
+      value:  `${humidity}%`,
     },
     {
       id: 3,
       Icon: FiWind,
       title: "Wind",
-      value:  `${speed.toFixed() || 0 }`,
+      value:  `${speed.toFixed()} km/h`,
     },
   ];
   const HorizontalDetails = [
@@ -51,13 +53,13 @@ const TemperatureDetails = ({weather:{
       id: 1,
       Icon: GiSunrise,
       title: "Sunrise",
-      value:formattedTime(sunrise,timezone), // Convert Unix time to readable format
+      value: sunrise, // Convert Unix time to readable format
     },
     {
       id: 2,
       Icon: GiSunset,
       title: "Sunset",
-      value:formattedTime(sunset,timezone), // Convert Unix time to readable format
+      value: sunset  , // Convert Unix time to readable format
     },
     {
       id: 3,
@@ -93,7 +95,8 @@ const TemperatureDetails = ({weather:{
             <div key={id} className="flex font-light text-sm items-center justify-center">
               <Icon size={18} className="mr-1" />
               {`${title}`}
-              <span className="font-medium ml-1">{value}</span>
+              <span className="font-medium ml-1">
+                {value} </span>
             </div>
           ))
           }

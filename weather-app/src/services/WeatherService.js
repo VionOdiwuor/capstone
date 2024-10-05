@@ -21,10 +21,9 @@ const getWeatherData = async (infoType, searchParams) => {
 };
 const formatToLocalTime = (
   secs,
-  // offset,
-  zone,
+  offset,
   format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a"
-) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
+) => DateTime.fromSeconds(secs + offset, { zone: "utc" }).toFormat(format);
 const formatCurrent = (data) => {
   const {
     coord: { lat, lon },
