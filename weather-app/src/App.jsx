@@ -36,17 +36,34 @@ function App() {
     getWeather()
   },[query, units]
 );
-// Function to set background based on temperature
-const formatBackground = () => {
-  if(!weather) return ' from-cyan-600 to-blue-700 '
-const threshold = units==='metric'? 20:60
-return weather.temp <= threshold ? 'from-cyan-600 to-blue-700' : 'from-yellow-600 to-orange-700';
+ // Function to set background based on weather condition
+ const formatBackground = () => {
+  if (!weather) return '/assets/background.jpg';
 
+  const weatherCondition = weather.details.toLowerCase();
+ 
+  switch (weatherCondition) {
+    case "clear":
+    case "sunny":
+      return `url('/assets/sunny.jpg')`; // Sunny background image
+    case "clouds":
+    case "cloudy":
+      return `url('/assets/cloudy.jpg')`; // Cloudy background image
+    case "rain":
+    case "rainy":
+      return `url('/assets/rainy.jpg')`; // Rainy background image
+    case "snow":
+      return `url('/assets/snowy.jpg')`; // Snowy background image
+    default:
+      return `url('/assets/background.jpg')`; // Default image for unknown conditions
+  
+    }
 };
 
-
   return (
-    <div className={`mx-auto max-w-screen-lg mt-4 py-5 px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground}`}>
+    <div className="mx-auto max-w-screen-lg mt-4 p-4 bg-cover bg-center shadow-xl shadow-gray-400"  
+    style={{ backgroundImage: formatBackground() }}
+    >
       <TopButtons setQuery={setQuery}/>
       <SearchBar setQuery={setQuery} setUnits={setUnits} error={error}/>
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { BiSearch, BiCurrentLocation } from "react-icons/bi";
+import { BiSearch } from "react-icons/bi";
+import { MdLocationOn } from "react-icons/md";
 const SearchBar= ( {setQuery,setUnits,error})=> {
   const [city, setCity] = useState("");
   const handleSearchClick = () =>{
@@ -30,7 +31,7 @@ const handleLocationClick=()=>{
           className=" cursor-pointer  text-white transition ease-out hover:scale-125 "
         onClick={handleSearchClick}
         />
-        <BiCurrentLocation
+        <MdLocationOn
           size={30}
           className=" cursor-pointer text-white transition ease-out hover:scale-125 "
         onClick={handleLocationClick}

@@ -87,7 +87,7 @@ const TemperatureDetails = ({weather:{
           alt="weather icon"
           className="w-20"
         />
-        <p className="text-5xl">{`${temp.toFixed()}`}</p>
+        <p className="text-5xl">{`${temp.toFixed()}°`}</p>
         <div className="flex flex-col space-y-3 items-start">
 
           {
