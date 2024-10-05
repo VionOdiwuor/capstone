@@ -1,19 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import { BiSearch, BiCurrentLocation } from "react-icons/bi";
-const SearchBar= ( {setQuery,setUnits})=> {
+const SearchBar= ( {setQuery,setUnits,error})=> {
   const [city, setCity] = useState("");
   const handleSearchClick = () =>{
     if(city!== "")setQuery({q:city})
   };
 const handleLocationClick=()=>{
   if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition[(position) => {
+    navigator.geolocation.getCurrentPosition((position) => {
       const {latitude,longitude} = position.coords
       setQuery({lat:latitude,lon:longitude})
       
-  }]
-}
+  });
+};
 };
   return (
     <div className="flex flex-row justify-center my-6">
@@ -45,6 +45,7 @@ const handleLocationClick=()=>{
         ℉
         </button>
       </div>
+      {error && <p className="text-red-500 mt-2">{error}</p>}
     </div>
   );
 };
