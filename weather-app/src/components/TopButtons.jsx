@@ -1,6 +1,6 @@
 import React from "react";
 //creates a reusable button for all cities
-const TopButtons=( setQuery)=> {
+const TopButtons=( {setQuery})=> {
   //create an array for the cities
   const cities = [
     {
