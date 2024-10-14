@@ -32,9 +32,20 @@
     "globals": "^15.9.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13"
-   
   },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "description": "weather dashboard",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VionOdiwuor/capstone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VionOdiwuor/capstone/issues"
+  },
+  "homepage": "https://github.com/VionOdiwuor/capstone#readme"
 }
