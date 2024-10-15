@@ -45,17 +45,17 @@ function App() {
   switch (weatherCondition) {
     case "clear":
     case "sunny":
-      return `url('./public/sunny.jpg')`; // Sunny background image
+      return `url('/public/sunny.jpg')`; // Sunny background image
     case "clouds":
     case "cloudy":
-      return `url('./public/cloudy.jpg')`; // Cloudy background image
+      return `url('/public/cloudy.jpg')`; // Cloudy background image
     case "rain":
     case "rainy":
-      return `url('./public/rainy.jpg')`; // Rainy background image
+      return `url('/public/rainy.jpg')`; // Rainy background image
     case "snow":
-      return `url('./public/snowy.jpg')`; // Snowy background image
+      return `url('/public/snowy.jpg')`; // Snowy background image
     default:
-      return `url('./public/background.jpg')`; // Default image for unknown conditions
+      return `url('/public/background.jpg')`; // Default image for unknown conditions
       
     }
 };
