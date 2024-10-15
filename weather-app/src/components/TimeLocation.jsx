@@ -5,8 +5,8 @@ const TimeLocation = ({
 }) => {
   return (
     <div className="text-center">
-      <div className='flex flex-col sm:flex-row items-center justify-center my-6'>
-<p className='text-white text-xl font-extralight sm:mr-4'>
+      <div className='flex flex-col items-center justify-center my-6'>
+<p className='text-white text-xl font-extralight sm:mr-4 sm:text-2xl'>
     
     {formattedLocalTime}
     </p>
