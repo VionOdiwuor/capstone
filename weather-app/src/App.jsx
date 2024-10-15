@@ -45,17 +45,17 @@ function App() {
   switch (weatherCondition) {
     case "clear":
     case "sunny":
-      return `url('weather-app\src\assets\sunny.jpg')`; // Sunny background image
+      return `url('/images/sunny.jpg')`; // Sunny background image
     case "clouds":
     case "cloudy":
-      return `url('weather-app\src\assets\cloudy.jpg')`; // Cloudy background image
+      return `url('/images/cloudy.jpg')`; // Cloudy background image
     case "rain":
     case "rainy":
-      return `url('weather-app\src\assets\rainy.jpg')`; // Rainy background image
+      return `url('/images/rainy.jpg')`; // Rainy background image
     case "snow":
-      return `url('weather-app\src\assets\snowy.jpg')`; // Snowy background image
+      return `url('/images/snowy.jpg')`; // Snowy background image
     default:
-      return `url('weather-app\src\assets\background.jpg')`; // Default image for unknown conditions
+      return `url('/images/background.jpg')`; // Default image for unknown conditions
       
     }
 };
