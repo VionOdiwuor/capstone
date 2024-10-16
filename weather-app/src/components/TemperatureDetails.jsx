@@ -72,52 +72,35 @@ const TemperatureDetails = ({
   ];
 
   return (
-    <div>
-      <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
-        <p>{details} </p>
+    <div className="text-center">
+      <div className="flex flex-col items-center py-6 ">
+      <img src={icon} alt="weather icon" className="w-20 " />
+        <p className="text-xl text-cyan-300">{details} </p>
+        <p className="text-5xl mt-2 text-white">{`${temp.toFixed()}°`}</p>
       </div>
-      <div className="flex flex-row items-center justify-between text-white py-3">
-        <img src={icon} alt="weather icon" className="w-20" />
-        <p className="text-5xl">{`${temp.toFixed()}°`}</p>
-        <div className="flex flex-col space-y-3 items-start">
+     
+          <div className="flex flex-col items-start space-y-2 ms-16 mb-2 text-white">
           {verticalDetails.map(({ id, Icon, title, value }) => (
             <div
               key={id}
               className="flex font-light text-sm items-center justify-center"
             >
               <Icon size={18} className="mr-1" />
-              {`${title}`}
+              <span className="font-light">{title}</span>
               <span className="font-medium ml-1">{value} </span>
             </div>
           ))}
         </div>
-      </div>
-      <div>
-        <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center space-x-10 text-white text-sm py-3">
-        <div className="flex space-x-6 mb-4">
-          {HorizontalDetails.slice(0, 2).map(({ id, Icon, title, value }) => (
-            <div key={id} className="flex flex-row items-center">
-              <Icon size={30} />
-              <p className="font-light ml-1">
-                {`${title}`}
-                <span className="font-medium ml-1">{value}</span>
-              </p>
-            </div>
-          ))}
-
-         </div>
-          <div className="flex space-x-6">
-            {HorizontalDetails.slice(2, 4).map(({ id, Icon, title, value }) => (
-              <div key={id} className="flex flex-row items-center">
-                <Icon size={30} />
-                <p className="font-light ml-1">
-                  {`${title}`}
-                  <span className="font-medium ml-1">{value}</span>
-                </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center space-x-10 text-white text-sm py-3">
+            {HorizontalDetails.slice(0, 4).map(({ id, Icon, title, value }) => (
+              <div key={id} className="flex items-center">
+                <Icon size={30} className="mr-1" />
+                <div className="ml-1">
+                <p className="font-light">{title}</p>
+                <span className="font-medium">{value}</span>
               </div>
-            ))}
-          </div>
         </div>
+      ))}
       </div>
     </div>
   );
