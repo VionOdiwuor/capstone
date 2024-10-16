@@ -76,7 +76,7 @@ const TemperatureDetails = ({
       <div className="flex flex-col items-center py-6 ">
       <img src={icon} alt="weather icon" className="w-20 " />
         <p className="text-xl text-cyan-300">{details} </p>
-        <p className="text-5xl mt-2 text-white">{`${temp.toFixed()}°`}</p>
+        <p className="text-5xl mt-2  text-white">{`${temp.toFixed()}°`}</p>
       </div>
      
           <div className="flex flex-col items-start space-y-2 ms-16 mb-2 text-white">
