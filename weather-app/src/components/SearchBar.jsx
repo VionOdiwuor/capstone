@@ -16,9 +16,9 @@ const SearchBar = ({ setQuery, setUnits, error }) => {
     }
   };
   return (
-    <div className="flex flex-col items-center my-6 ">
-      <div className="flex flex-row items-center justify-center w-full max-w-lg space-x-2">
-      <div className="flex w-full items-center bg-white rounded-full shadow-xl mx-auto">
+    <div className="flex flex-col items-center my-6 mx-6">
+      <div className="flex flex-col sm:flex-row items-center justify-center w-full max-w-lg space-y-4 sm:space-y-0 sm:space-x-2 overflow-hidden">
+      <div className="flex w-full sm:w-3/4 items-center bg-white rounded-full shadow-xl mx-auto">
         
         {/* Search Icon inside the bar */}
         <BiSearch
@@ -42,16 +42,16 @@ const SearchBar = ({ setQuery, setUnits, error }) => {
       </div>
       
       
-      <div className="flex flex-col sm:flex-row items-center space-x-1">
+      <div className="flex sm:flex-row flex-col sm:items-center items-center sm:space-x-1">
         <button
-          className="text-2xl text-white font-medium transition ease-out hover:scale-125 px-1 py-1"
+          className="text-lg sm:text-2xl text-white font-medium transition ease-out hover:scale-125 px-1 py-1"
           onClick={() => setUnits("metric")}
         >
           ℃
         </button>
-        <p className="text-2xl text-white font-medium ">|</p>
+        <p className="text-lg sm:text-2xl text-white font-medium ">|</p>
         <button
-          className="text-2xl text-white font-medium transition ease-out hover:scale-125 px-1 py-1"
+          className="text-lg sm:text-2xl text-white font-medium transition ease-out hover:scale-125 px-1 py-1"
           onClick={() => setUnits("imperial")}
         >
           ℉
