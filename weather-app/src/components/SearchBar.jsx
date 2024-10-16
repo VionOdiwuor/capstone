@@ -42,7 +42,7 @@ const SearchBar = ({ setQuery, setUnits, error }) => {
       </div>
       
       
-      <div className="flex items-center space-x-1">
+      <div className="flex flex-col sm:flex-row items-center space-x-1">
         <button
           className="text-2xl text-white font-medium transition ease-out hover:scale-125 px-1 py-1"
           onClick={() => setUnits("metric")}

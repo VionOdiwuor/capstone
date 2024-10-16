@@ -61,7 +61,7 @@ function App() {
 };
 
   return (
-    <div className="min-h-screen w-screen flex flex-col justify-between bg-cover bg-center"  
+    <div className="min-h-screen w-screen flex flex-col justify-between bg-cover bg-center transition-all duration-500"  
     style={{ backgroundImage: formatBackground() }}
     >
       <TopButtons setQuery={setQuery}/>

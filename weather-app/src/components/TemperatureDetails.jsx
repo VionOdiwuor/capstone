@@ -76,10 +76,10 @@ const TemperatureDetails = ({
       <div className="flex flex-col items-center py-6 ">
       <img src={icon} alt="weather icon" className="w-20 " />
         <p className="text-xl text-cyan-300">{details} </p>
-        <p className="text-5xl mt-2  text-white">{`${temp.toFixed()}°`}</p>
+        <p className="text-5xl mt-2 text-white">{`${temp.toFixed()}°`}</p>
       </div>
      
-          <div className="flex flex-col items-start space-y-2 ms-16 mb-2 text-white">
+          <div className="flex flex-col items-start space-y-2 ml-8 text-white">
           {verticalDetails.map(({ id, Icon, title, value }) => (
             <div
               key={id}
@@ -91,11 +91,11 @@ const TemperatureDetails = ({
             </div>
           ))}
         </div>
-          <div className="flex flex-col sm:flex-row justify-center items-center space-x-10 text-white text-sm py-3">
+          <div className="flex flex-wrap justify-center sm:flex-row text-white text-sm py-3 gap-4">
             {HorizontalDetails.slice(0, 4).map(({ id, Icon, title, value }) => (
               <div key={id} className="flex items-center">
                 <Icon size={30} className="mr-1" />
-                <div className="ml-1">
+                 <div className="ml-1">
                 <p className="font-light">{title}</p>
                 <span className="font-medium">{value}</span>
               </div>
