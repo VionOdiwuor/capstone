@@ -9,3 +9,5 @@ Search Functionality: Users can search for weather information by city name or G
 Responsive Design: Optimized for use on both desktop and mobile devices.
 Interactive UI: Clean and modern interface with dynamic visuals and easy navigation.
 
+TOPBUTTONS
+![image](https://github.com/user-attachments/assets/02547387-e466-4851-9a93-df2c192bb24e)
